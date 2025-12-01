@@ -494,9 +494,9 @@ ul[role="list"] {
 .map-info {
     margin-top: var(--space-lg);
     padding: var(--space-lg);
-    background: linear-gradient(135deg, 
-        rgba(14, 165, 233, 0.1), 
-        rgba(20, 184, 166, 0.1));
+    background: linear-gradient(135deg,
+            rgba(14, 165, 233, 0.1),
+            rgba(20, 184, 166, 0.1));
     border-radius: var(--border-radius-lg);
     display: flex;
     justify-content: space-between;
@@ -520,8 +520,15 @@ ul[role="list"] {
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .map-info__title {
@@ -845,16 +852,16 @@ ul[role="list"] {
     .map-placeholder {
         height: 300px;
     }
-    
+
     .map-container iframe {
         height: 300px;
     }
-    
+
     .map-info {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .map-info__content {
         flex-direction: column;
         text-align: center;
