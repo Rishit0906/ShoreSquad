@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description"
+            content="Rally your crew, track weather, and hit the next beach cleanup with ShoreSquad!">
+        <meta name="theme-color" content="#0EA5E9">
+        <title>ShoreSquad - Beach Cleanup Community</title>
+
+        <!-- Preconnect for performance -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap"
+            rel="stylesheet">
+
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header class="header" role="banner">
+            <nav class="nav container" aria-label="Main navigation">
+                <div class="nav__brand">
+                    <a href="#" class="logo">
+                        <span class="logo__wave">🌊</span>
+                        <span class="logo__text">ShoreSquad</span>
+                    </a>
+                </div>
+                <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav__menu" role="list">
+                    <li><a href="#features" class="nav__link">Features</a></li>
+                    <li><a href="#map" class="nav__link">Find Cleanups</a></li>
+                    <li><a href="#community" class="nav__link">Community</a></li>
+                    <li><a href="#join" class="nav__link nav__link--cta">Join Squad</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <main>
+            <section class="hero" id="home">
+                <div class="container hero__content">
+                    <h1 class="hero__title">
+                        Rally Your Crew,<br>
+                        <span class="hero__title--highlight">Clean the Beach</span>
+                    </h1>
+                    <p class="hero__subtitle">
+                        Track weather, find cleanups nearby, and make eco-action fun with your squad.
+                        Join thousands making waves for cleaner shores! 🏖️
+                    </p>
+                    <div class="hero__cta">
+                        <button class="btn btn--primary" id="getStartedBtn">
+                            Get Started
+                        </button>
+                        <button class="btn btn--secondary">
+                            Watch Demo
+                        </button>
+                    </div>
+                    <div class="hero__stats">
+                        <div class="stat">
+                            <span class="stat__number" data-count="5420">0</span>
+                            <span class="stat__label">Squad Members</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number" data-count="892">0</span>
+                            <span class="stat__label">Cleanups Completed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number" data-count="34">0</span>
+                            <span class="stat__label">Tons Collected</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__background" aria-hidden="true"></div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features" id="features">
+                <div class="container">
+                    <h2 class="section__title">Why ShoreSquad Rocks</h2>
+                    <p class="section__subtitle">Everything you need to organize and join beach cleanups</p>
+
+                    <div class="features__grid">
+                        <article class="feature-card">
+                            <div class="feature-card__icon" aria-hidden="true">🗺️</div>
+                            <h3 class="feature-card__title">Interactive Map</h3>
+                            <p class="feature-card__description">
+                                Find cleanups near you with real-time locations and event details
+                            </p>
+                        </article>
+
+                        <article class="feature-card">
+                            <div class="feature-card__icon" aria-hidden="true">🌤️</div>
+                            <h3 class="feature-card__title">Weather Tracking</h3>
+                            <p class="feature-card__description">
+                                Check conditions before you head out - never get caught in the rain
+                            </p>
+                        </article>
+
+                        <article class="feature-card">
+                            <div class="feature-card__icon" aria-hidden="true">👥</div>
+                            <h3 class="feature-card__title">Squad Building</h3>
+                            <p class="feature-card__description">
+                                Rally your friends, earn badges, and compete on leaderboards
+                            </p>
+                        </article>
+
+                        <article class="feature-card">
+                            <div class="feature-card__icon" aria-hidden="true">📅</div>
+                            <h3 class="feature-card__title">Easy Planning</h3>
+                            <p class="feature-card__description">
+                                Create events, send invites, and coordinate logistics in one place
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Map Preview Section -->
+            <section class="map-section" id="map">
+                <div class="container">
+                    <h2 class="section__title">Find Cleanups Near You</h2>
+                    <div class="map-placeholder">
+                        <div class="map-placeholder__content">
+                            <span class="map-placeholder__icon">📍</span>
+                            <p>Interactive map coming soon!</p>
+                            <button class="btn btn--primary">Enable Location</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Community Section -->
+            <section class="community" id="community">
+                <div class="container">
+                    <h2 class="section__title">Join the Movement</h2>
+                    <p class="section__subtitle">Real squads making real impact</p>
+
+                    <div class="community__grid">
+                        <div class="community-card">
+                            <img src="https://via.placeholder.com/400x300/14B8A6/FFFFFF?text=Beach+Cleanup"
+                                alt="Squad cleaning beach" class="community-card__image" loading="lazy">
+                            <div class="community-card__content">
+                                <h3>LA Beach Warriors</h3>
+                                <p>Cleaned 2.5 tons last month! 🔥</p>
+                                <span class="community-card__members">247 members</span>
+                            </div>
+                        </div>
+
+                        <div class="community-card">
+                            <img src="https://via.placeholder.com/400x300/0EA5E9/FFFFFF?text=Squad+Goals"
+                                alt="Team photo at beach" class="community-card__image" loading="lazy">
+                            <div class="community-card__content">
+                                <h3>Miami Tide Turners</h3>
+                                <p>42 cleanups and counting! 🌊</p>
+                                <span class="community-card__members">189 members</span>
+                            </div>
+                        </div>
+
+                        <div class="community-card">
+                            <img src="https://via.placeholder.com/400x300/F97316/FFFFFF?text=Making+Waves"
+                                alt="Volunteers with trash bags" class="community-card__image" loading="lazy">
+                            <div class="community-card__content">
+                                <h3>SF Shore Savers</h3>
+                                <p>Making waves every weekend! ✨</p>
+                                <span class="community-card__members">312 members</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section" id="join">
+                <div class="container cta-section__content">
+                    <h2 class="cta-section__title">Ready to Make a Difference?</h2>
+                    <p class="cta-section__subtitle">Join thousands of young changemakers cleaning our shores</p>
+                    <form class="signup-form" id="signupForm">
+                        <div class="signup-form__group">
+                            <input type="email" class="signup-form__input" placeholder="Enter your email" required
+                                aria-label="Email address" id="emailInput">
+                            <button type="submit" class="btn btn--primary">Join Squad</button>
+                        </div>
+                        <p class="signup-form__privacy">
+                            We respect your privacy. No spam, ever. 🌊
+                        </p>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__brand">
+                        <div class="logo">
+                            <span class="logo__wave">🌊</span>
+                            <span class="logo__text">ShoreSquad</span>
+                        </div>
+                        <p class="footer__tagline">Making waves for cleaner shores</p>
+                    </div>
+
+                    <div class="footer__links">
+                        <div class="footer__column">
+                            <h3 class="footer__heading">Product</h3>
+                            <ul role="list">
+                                <li><a href="#features">Features</a></li>
+                                <li><a href="#map">Find Cleanups</a></li>
+                                <li><a href="#community">Community</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer__column">
+                            <h3 class="footer__heading">Resources</h3>
+                            <ul role="list">
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Impact Report</a></li>
+                                <li><a href="#">Help Center</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer__column">
+                            <h3 class="footer__heading">Connect</h3>
+                            <ul role="list">
+                                <li><a href="#">Instagram</a></li>
+                                <li><a href="#">Twitter</a></li>
+                                <li><a href="#">TikTok</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer__bottom">
+                    <p>&copy; 2025 ShoreSquad. All rights reserved.</p>
+                    <div class="footer__legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Toast Notification -->
+        <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true">
+            <span class="toast__message"></span>
+        </div>
+
+        <!-- JavaScript -->
+        <script src="js/app.js"></script>
+    </body>
+
+</html>
