@@ -37,6 +37,7 @@
                 </button>
                 <ul class="nav__menu" role="list">
                     <li><a href="#features" class="nav__link">Features</a></li>
+                    <li><a href="#weather" class="nav__link">Weather</a></li>
                     <li><a href="#map" class="nav__link">Find Cleanups</a></li>
                     <li><a href="#community" class="nav__link">Community</a></li>
                     <li><a href="#join" class="nav__link nav__link--cta">Join Squad</a></li>
@@ -120,6 +121,33 @@
                                 Create events, send invites, and coordinate logistics in one place
                             </p>
                         </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weather Forecast Section -->
+            <section class="weather-section" id="weather">
+                <div class="container">
+                    <h2 class="section__title">4-Day Weather Forecast</h2>
+                    <p class="section__subtitle">Plan your beach cleanup with real-time Singapore weather data</p>
+
+                    <div class="weather-loading" id="weatherLoading">
+                        <div class="weather-loading__spinner"></div>
+                        <p>Loading weather data...</p>
+                    </div>
+
+                    <div class="weather-forecast" id="weatherForecast">
+                        <!-- Weather cards will be dynamically inserted here -->
+                    </div>
+
+                    <div class="weather-error" id="weatherError" style="display: none;">
+                        <span class="weather-error__icon">⚠️</span>
+                        <p>Unable to load weather data. Please try again later.</p>
+                    </div>
+
+                    <div class="weather-source">
+                        <p>Data from <a href="https://data.gov.sg" target="_blank" rel="noopener noreferrer">Singapore's
+                                National Environment Agency (NEA)</a></p>
                     </div>
                 </div>
             </section>

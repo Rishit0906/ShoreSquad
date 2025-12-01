@@ -245,6 +245,142 @@
     }
 
     // ===================================
+    // Weather Forecast (NEA Singapore Data)
+    // ===================================
+
+    async function fetchWeatherForecast() {
+        const weatherForecast = document.getElementById('weatherForecast');
+        const weatherLoading = document.getElementById('weatherLoading');
+        const weatherError = document.getElementById('weatherError');
+
+        try {
+            // Data.gov.sg 4-day weather forecast API
+            const response = await fetch('https://api-open.data.gov.sg/v2/real-time/api/four-day-outlook');
+
+            if (!response.ok) {
+                throw new Error('Weather API request failed');
+            }
+
+            const data = await response.json();
+
+            // Hide loading
+            weatherLoading.style.display = 'none';
+
+            // Parse and display forecast
+            displayWeatherForecast(data);
+
+        } catch (error) {
+            console.error('Weather fetch error:', error);
+            weatherLoading.style.display = 'none';
+            weatherError.style.display = 'block';
+        }
+    }
+
+    function displayWeatherForecast(data) {
+        const weatherForecast = document.getElementById('weatherForecast');
+
+        // Clear existing content
+        weatherForecast.innerHTML = '';
+
+        // Get forecast data
+        const forecasts = data.data.records;
+
+        if (!forecasts || forecasts.length === 0) {
+            document.getElementById('weatherError').style.display = 'block';
+            return;
+        }
+
+        // Create weather cards for each day
+        forecasts.forEach((forecast, index) => {
+            const date = new Date(forecast.date);
+            const dayName = date.toLocaleDateString('en-SG', { weekday: 'long' });
+            const dateStr = date.toLocaleDateString('en-SG', { day: 'numeric', month: 'short' });
+
+            // Determine weather icon based on forecast
+            const weatherIcon = getWeatherIcon(forecast.forecast);
+
+            // Parse temperature (if available)
+            const tempHigh = forecast.temperature?.high || 32;
+            const tempLow = forecast.temperature?.low || 25;
+
+            // Parse humidity
+            const humidityHigh = forecast.humidity?.high || 85;
+            const humidityLow = forecast.humidity?.low || 65;
+
+            // Parse wind
+            const windSpeed = forecast.wind?.speed?.high || 25;
+
+            const card = document.createElement('div');
+            card.className = 'weather-card';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+
+            card.innerHTML = `
+                <div class="weather-card__date">${dateStr}</div>
+                <div class="weather-card__day">${dayName}</div>
+                <div class="weather-card__icon">${weatherIcon}</div>
+                <div class="weather-card__temp">
+                    <span class="weather-card__temp-high">${tempHigh}°C</span>
+                    <span class="weather-card__temp-low">${tempLow}°C</span>
+                </div>
+                <div class="weather-card__condition">${forecast.forecast || 'Partly Cloudy'}</div>
+                <div class="weather-card__details">
+                    <div class="weather-card__detail">
+                        <span class="weather-card__detail-icon">💧</span>
+                        <span class="weather-card__detail-label">Humidity</span>
+                        <span class="weather-card__detail-value">${humidityLow}-${humidityHigh}%</span>
+                    </div>
+                    <div class="weather-card__detail">
+                        <span class="weather-card__detail-icon">💨</span>
+                        <span class="weather-card__detail-label">Wind</span>
+                        <span class="weather-card__detail-value">${windSpeed} km/h</span>
+                    </div>
+                </div>
+            `;
+
+            weatherForecast.appendChild(card);
+
+            // Animate card entrance
+            setTimeout(() => {
+                card.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+    }
+
+    function getWeatherIcon(forecast) {
+        if (!forecast) return '🌤️';
+
+        const condition = forecast.toLowerCase();
+
+        // Map weather conditions to emojis
+        if (condition.includes('thunder') || condition.includes('storm')) {
+            return '⛈️';
+        } else if (condition.includes('rain') || condition.includes('shower')) {
+            return '🌧️';
+        } else if (condition.includes('cloudy') || condition.includes('overcast')) {
+            return '☁️';
+        } else if (condition.includes('partly cloudy') || condition.includes('fair')) {
+            return '⛅';
+        } else if (condition.includes('hazy') || condition.includes('haze')) {
+            return '🌫️';
+        } else if (condition.includes('windy')) {
+            return '💨';
+        } else if (condition.includes('clear') || condition.includes('sunny')) {
+            return '☀️';
+        }
+
+        return '🌤️'; // Default
+    }
+
+    function initWeather() {
+        if (document.getElementById('weatherForecast')) {
+            fetchWeatherForecast();
+        }
+    }
+
+    // ===================================
     // Performance Optimizations
     // ===================================
 
@@ -382,6 +518,7 @@
         initHeaderScroll();
         initAccessibility();
         initErrorHandling();
+        initWeather();
 
         console.log('✅ ShoreSquad ready!');
     }
